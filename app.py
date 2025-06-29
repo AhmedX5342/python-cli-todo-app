@@ -133,7 +133,7 @@ def deleteTask():
   
   if(secondInput>=0 and secondInput<=len(data['tasks'])):
     deleted_task = data['tasks'].pop(secondInput-1)
-    with open('data.json', 'w') as file:
+    with open('tasks.json', 'w') as file:
       json.dump(data, file, indent=4)
       
     print(f'successfully deleted "{deleted_task['title']}"')
@@ -159,7 +159,7 @@ def completeTask():
       data['tasks'][secondInput-1]['done']="True"
       print(f'successfully completed "{data['tasks'][secondInput-1]['title']}"')
 
-    with open('data.json', 'w') as file:
+    with open('tasks.json', 'w') as file:
       json.dump(data, file, indent=4) 
   else:
     print(f'please enter a valid id (1-{len(data['tasks'])})')
